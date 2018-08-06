@@ -26,7 +26,7 @@ public class ArtifactRepositoryBean {
     public enum NexusType {
         
         NEXUS_2("NEXUS", "http://localhost:8081/nexus/"),
-        NEXUS_3("NEXUS 3", "http://localhost:8081/"),
+        NEXUS_3("NEXUS 3", "http://localhost:8081/nexus3/"),//"http://localhost:8081/"
         ARTIFACTORY("Artifactory", "http://localhost:8081/artifactory/");
 
         String repType;
@@ -109,7 +109,7 @@ public class ArtifactRepositoryBean {
 
     private String nexusDefaultGroupID = ""; //$NON-NLS-1$
 
-    private String type = NexusType.NEXUS_2.name();
+    private String type = NexusType.NEXUS_3.name();//NexusType.NEXUS_2.name();
 
     private boolean isAbsoluteURL = false;
 
