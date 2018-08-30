@@ -255,8 +255,7 @@ public class ParserUtils {
         return parseTo_Document(s, false);
     }
 
-    public static routines.system.Document parseTo_Document(String s, boolean ignoreDTD)
-            throws org.dom4j.DocumentException {
+    public static routines.system.Document parseTo_Document(String s, boolean ignoreDTD) throws org.dom4j.DocumentException {
         return parseTo_Document(s, false, null);
     }
 
@@ -308,7 +307,7 @@ public class ParserUtils {
     /**
      * convert a date in String format to a {@link java.util.Date}
      * 
-     * @param dateString could be common representation like "2007-09-13", or a epoch value
+     * @param dateString could be common representation like "2007-09-13"
      * @param pattern
      * @return
      */
