@@ -311,8 +311,7 @@ public class ParserUtils {
      * @param pattern
      * @return
      */
-    // TODO: this method doesn't need to be synced
-    public synchronized static java.util.Date parseTo_Date(String dateString, String pattern) {
+    public static java.util.Date parseTo_Date(String dateString, String pattern) {
         // check the parameter for supporting " ","2007-09-13"," 2007-09-13 "
         if (dateString == null || dateString.length() == 0) {
             return null;
@@ -343,8 +342,7 @@ public class ParserUtils {
         return date;
     }
 
-    // TODO: this method doesn't need to be synced
-    public synchronized static java.util.Date parseTo_Date(String s, String pattern, boolean lenient) {
+    public static java.util.Date parseTo_Date(String s, String pattern, boolean lenient) {
         // check the parameter for supporting " ","2007-09-13"," 2007-09-13 "
         if (s != null) {
             s = s.trim();
