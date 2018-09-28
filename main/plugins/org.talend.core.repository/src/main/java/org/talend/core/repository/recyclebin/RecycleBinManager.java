@@ -16,8 +16,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IPath;
@@ -237,12 +239,30 @@ public class RecycleBinManager {
             loadRecycleBin(project, false);
         }
         try {
+            RecycleBin recycleBin = projectRecyclebins.get(project.getTechnicalLabel());
+
+            boolean needSynchronise = true;
+            Set<String> recycleBinDeletedFolders = new HashSet<>(recycleBin.getDeletedFolders());
+            Set<String> projectDeletedFolders = new HashSet<>(project.getDeletedFolders());
+            if (recycleBinDeletedFolders.size() == projectDeletedFolders.size()) {
+                recycleBinDeletedFolders.removeAll(projectDeletedFolders);
+                if (recycleBinDeletedFolders.isEmpty()) {
+                    needSynchronise = false;
+                } else {
+                    needSynchronise = true;
+                }
+            } else {
+                needSynchronise = true;
+            }
+            if (!needSynchronise) {
+                return;
+            }
+
             Resource resource = getResource(project);
             if (resource == null) {
                 resource = createRecycleBinResource(project);
             }
             resource.getContents().clear();
-            RecycleBin recycleBin = projectRecyclebins.get(project.getTechnicalLabel());
             recycleBin.setLastUpdate(new Date());
             // Synchronize delete folder to recycleBin
             recycleBin.getDeletedFolders().clear();
