@@ -4744,7 +4744,7 @@ public class DatabaseForm extends AbstractForm {
                 if (!isContextMode()) {
                     if (!urlConnectionStringText.getEditable()) {
                         getConnection().setAdditionalParams(additionParamText.getText());
-//                        modifyFieldValue();
+                        modifyFieldValue();
                     }
                 }
             }
@@ -6224,7 +6224,6 @@ public class DatabaseForm extends AbstractForm {
         boolean isHive = visible && hiveVersionEnable();
         boolean isMsSQL = visible && asMsSQLVersionEnable();
         boolean isSybase = visible && asSybaseVersionEnable();
-//        boolean isRedshiftsso = visible&&asRedshiftSSOVersionEnable();
 
         dbVersionCombo
                 .setEnabled(!isReadOnly()
