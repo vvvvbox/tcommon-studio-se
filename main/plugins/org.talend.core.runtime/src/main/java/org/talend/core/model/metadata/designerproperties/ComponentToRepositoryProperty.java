@@ -464,6 +464,10 @@ public class ComponentToRepositoryProperty {
             connection.setDatabaseType(EDatabaseTypeName.REDSHIFT.getDisplayName());
             connection.setProductId(EDatabaseTypeName.REDSHIFT.getProduct());
         }
+        else if (EDatabaseTypeName.REDSHIFT_SSO.getProduct().equalsIgnoreCase((String) parameter.getValue())) {
+            connection.setDatabaseType(EDatabaseTypeName.REDSHIFT_SSO.getDisplayName());
+            connection.setProductId(EDatabaseTypeName.REDSHIFT_SSO.getProduct());
+        }
         // NeTezza
         else if (EDatabaseTypeName.NETEZZA.getProduct().equalsIgnoreCase((String) parameter.getValue())) {
             connection.setDatabaseType(EDatabaseTypeName.NETEZZA.getDisplayName());

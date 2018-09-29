@@ -160,7 +160,8 @@ public enum EDatabaseVersion4Drivers {
 
     MAPRDB(new DbVersion4Drivers(EDatabaseTypeName.MAPRDB, new String[] {})),
 
-    REDSHIFT(new DbVersion4Drivers(EDatabaseTypeName.REDSHIFT, "RedshiftJDBC41-1.2.10.1009.jar")), //$NON-NLS-1$
+    REDSHIFT(new DbVersion4Drivers(EDatabaseTypeName.REDSHIFT,"redshift","REDSHIFT", "RedshiftJDBC41-1.2.16.1027.jar")), //$NON-NLS-1$
+    REDSHIFT_SSO(new DbVersion4Drivers(EDatabaseTypeName.REDSHIFT_SSO,"redshift sso","REDSHIFT_SSO", "RedshiftJDBC41-1.2.16.1027.jar")),
 
     AMAZON_AURORA(new DbVersion4Drivers(EDatabaseTypeName.AMAZON_AURORA, "mysql-connector-java-5.1.30-bin.jar")); //$NON-NLS-1$
 
