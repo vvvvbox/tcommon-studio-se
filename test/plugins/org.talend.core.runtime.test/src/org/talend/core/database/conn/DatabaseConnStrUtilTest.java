@@ -133,4 +133,24 @@ public class DatabaseConnStrUtilTest {
         Assert.assertEquals(analyseURL.length, 6);
         Assert.assertEquals(analyseURL[4], "");
     }
+
+    @Test
+    public void testGetURLStringForMSSQL() {
+        String dbType = "Microsoft SQL Server";
+        String dbVersion = "MSSQL_PROP";
+        String host = "lcoalhost";
+        String port = "";
+        String sid = "master";
+        String[] otherParam = new String[] {};
+        String expectURL = "jdbc:sqlserver://" + host + ";DatabaseName=master;";
+        String realValue = DatabaseConnStrUtil.getURLString(false, dbType, dbVersion, host, "", "", port, sid, "", "", "", "",
+                otherParam);
+        assertTrue(expectURL.equals(realValue));
+
+        port = "1433";
+        expectURL = "jdbc:sqlserver://" + host + ":" + port + ";DatabaseName=master;";
+        realValue = DatabaseConnStrUtil.getURLString(false, dbType, dbVersion, host, "", "", port, sid, "", "", "", "",
+                otherParam);
+        assertTrue(expectURL.equals(realValue));
+    }
 }
